@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	
+@RequestMapping("{codigo}")
+	public ModelAndView edicao(@PathVariable ("codigo") Long codigoTitulo) {
+		Titulo titulo = titulos.getReferenceById(codigoTitulo);
+		ModelAndView mv = new ModelAndView(CADASTRO_VIEW);
+
+		mv.addObject(titulo);
+		return mv;
+	}
+	
+	
+	<td class="text-center">
+							<a class="btn btn-link btn-xs" th:href="@{/titulos/{codigo}(codigo=${titulo.codigo})}">
+								<span class="glyphicon glyphicon-pencil"></span>
+							</a>
+						</td>
+	
+</body>
+</html>
